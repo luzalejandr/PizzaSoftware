@@ -12,6 +12,8 @@ namespace PizzaSoft.Application.Common.Interfaces.Persistence
 
         Task<List<Domain.Entities.Topping>> GetToppings();
 
-        Task<string> DeleteToppings(Guid id); 
+        Task<string> DeleteToppings(Guid id);
+
+        Task<Domain.Entities.Topping> GetToppingById(Guid  Id);
     }
 }

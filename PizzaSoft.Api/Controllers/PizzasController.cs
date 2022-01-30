@@ -63,6 +63,16 @@ namespace PizzaSoft.Api.Controllers
             return Ok(await Mediator.Send(addToppingtoPizza));
         }
 
+        [HttpGet]
+        [Route("GetToppingsFromPizza")]
+        public async Task<ActionResult> GetToppingsFromPizza(Guid idPizza)
+        {
+            GetToppingsFromPizzaQuery getToppingsFromPizzaQuery = new GetToppingsFromPizzaQuery();
+            getToppingsFromPizzaQuery.Id = idPizza;
+
+            return Ok(await Mediator.Send(getToppingsFromPizzaQuery));
+        }
+
 
 
     }

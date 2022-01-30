@@ -57,5 +57,18 @@ namespace PizzaSoft.Infrastructure.Persistence
             return "ok";
         }
 
+        public async Task<Topping> GetToppingById(Guid id)
+        {
+            using IDbConnection connection = new NpgsqlConnection(_connectionString);
+            string query = @"
+                     SELECT * from public.""Topping""
+                     where  ""Id"" = @Id ";
+            var result = await connection.QueryAsync<Topping>(query, new
+            {
+                @Id = id
+            });
+            return result.FirstOrDefault();
+        }
+
     }
 }
