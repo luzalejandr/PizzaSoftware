@@ -1,11 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PizzaSoft.Api
 {
@@ -13,13 +10,38 @@ namespace PizzaSoft.Api
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            Log.Logger = new LoggerConfiguration()
+              .ReadFrom.Configuration(config)
+              .CreateLogger();
+
+            try
+            {
+                Log.Information("Iniciando sistema");
+                CreateHostBuilder(args).Build().Run();
+            }
+            catch (Exception e)
+            {
+                Log.Fatal(e, "sistema falló al iniciarse");
+            }
+            finally
+            {
+                Log.Information("Finalizando sistema");
+                Log.CloseAndFlush();
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.ConfigureKestrel((options) =>
+                    {
+                        options.AddServerHeader = false;
+                    });
                     webBuilder.UseStartup<Startup>();
                 });
     }

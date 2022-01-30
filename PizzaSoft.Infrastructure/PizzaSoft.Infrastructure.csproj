@@ -5,9 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Persistence\" />
-    <Folder Include="Services\" />
-    <Folder Include="Token\" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="5.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+    <PackageReference Include="Npgsql" Version="5.0.5" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.9.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaSoft.Application\PizzaSoft.Application.csproj" />
   </ItemGroup>
 
 </Project>
