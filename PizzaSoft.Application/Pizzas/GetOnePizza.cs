@@ -2,9 +2,6 @@
 using PizzaSoft.Application.Common.Interfaces.Persistence;
 using PizzaSoft.Domain.Common;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,7 +24,13 @@ namespace PizzaSoft.Application.Pizzas
         public async Task<BaseResponse<Domain.Entities.Pizza>> Handle(GetOnePizza request, CancellationToken cancellationToken)
         {
             var pizzaData = await _applicationDbContext.GetPizzaById(request.Id);
-            return new BaseResponse<Domain.Entities.Pizza>(pizzaData);
+
+            if (pizzaData == null)
+
+                return new BaseResponse<Domain.Entities.Pizza>("Error300", "That pizza doesnt exist");
+            else
+                return new BaseResponse<Domain.Entities.Pizza>(pizzaData);
+
         }
     }
 }

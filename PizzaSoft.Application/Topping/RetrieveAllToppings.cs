@@ -1,10 +1,7 @@
 ﻿using MediatR;
 using PizzaSoft.Application.Common.Interfaces.Persistence;
 using PizzaSoft.Domain.Common;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

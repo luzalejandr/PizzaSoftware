@@ -1,11 +1,10 @@
 ﻿
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using System.Threading.Tasks;
-using PizzaSoft.Application.Pizzas;
-using PizzaSoft.Api.Contracts;
 using Mapster;
+using Microsoft.AspNetCore.Mvc;
+using PizzaSoft.Api.Contracts;
+using PizzaSoft.Application.Pizzas;
 using System;
+using System.Threading.Tasks;
 
 namespace PizzaSoft.Api.Controllers
 {

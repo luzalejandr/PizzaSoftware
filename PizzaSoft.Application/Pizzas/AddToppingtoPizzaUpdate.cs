@@ -4,7 +4,6 @@ using PizzaSoft.Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29,19 +28,21 @@ namespace PizzaSoft.Application.Pizzas
 
         public async Task<BaseResponse<Domain.Entities.Pizza>> Handle(AddToppingtoPizzaUpdate request, CancellationToken cancellationToken)
         {
-              
-            
+
+
 
             var toppings = await _applicationDbContext.GetPizzaById(request.IdPizza);
             Guid[] toppingsArray = toppings.Toppings;
-            List<Guid> listToppings =toppingsArray.ToList();
+            List<Guid> listToppings = toppingsArray.ToList();
             listToppings.Add(request.IdTopping);
             toppingsArray = listToppings.ToArray();
 
             var result = await _applicationDbContext.AddToppingtoPizza(request.IdPizza, toppingsArray);
 
-
-            return new BaseResponse<Domain.Entities.Pizza>(result);
+            if (result == null)
+                return new BaseResponse<Domain.Entities.Pizza>("Error100", "Topping  cant be added to the pizza");
+            else
+                return new BaseResponse<Domain.Entities.Pizza>(result);
         }
     }
 }

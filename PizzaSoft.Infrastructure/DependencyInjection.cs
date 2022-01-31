@@ -1,11 +1,9 @@
-﻿using PizzaSoft.Application.Common.Interfaces.Persistence;
-using PizzaSoft.Application.Common.Interfaces.Token;
-using PizzaSoft.Infrastructure.Persistence;
-using PizzaSoft.Infrastructure.Token;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using PizzaSoft.Application.Common.Interfaces.Persistence;
+using PizzaSoft.Infrastructure.Persistence;
 using System.Text;
 
 namespace PizzaSoft.Infrastructure
@@ -16,9 +14,7 @@ namespace PizzaSoft.Infrastructure
         {
 
             services.AddDbContext<Appdbcontext>();
-            services.AddSingleton<IAppdbcontext, Appdbcontext>();      
-     
-            services.AddScoped<ITokenService, TokenService>();
+            services.AddSingleton<IAppdbcontext, Appdbcontext>();
 
             var tokenValidationParameters = new TokenValidationParameters
             {

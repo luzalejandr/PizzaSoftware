@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PizzaSoft.Infrastructure.Persistence
@@ -43,8 +42,8 @@ namespace PizzaSoft.Infrastructure.Persistence
             return result.ToList();
         }
 
-        
-            public async Task<string> DeleteToppings(Guid id)
+
+        public async Task<string> DeleteToppings(Guid id)
         {
             using IDbConnection connection = new NpgsqlConnection(_connectionString);
             string query = @"

@@ -1,9 +1,4 @@
-﻿using PizzaSoft.Domain.Errors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PizzaSoft.Domain.Common
 {
@@ -33,7 +28,7 @@ namespace PizzaSoft.Domain.Common
         public BaseResponse(TData data)
         {
             this.Success = true;
-            this.Message = ErrorMessage.SUC000;
+            this.Message = "";
             this.Data = data;
         }
     }

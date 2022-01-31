@@ -1,7 +1,7 @@
-﻿using PizzaSoft.Application.Common.Behaviors;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using PizzaSoft.Application.Common.Behaviors;
 using Serilog;
 using System.Globalization;
 using System.Reflection;

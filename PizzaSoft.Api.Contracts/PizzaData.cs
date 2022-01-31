@@ -6,7 +6,7 @@ namespace PizzaSoft.Api.Contracts
 {
     public class PizzaData
     {
-      
+
         public string Name { get; set; }
         public string Detail { get; set; }
         public double Price { get; set; }

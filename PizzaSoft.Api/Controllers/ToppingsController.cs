@@ -1,11 +1,8 @@
 ﻿using Mapster;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PizzaSoft.Api.Contracts;
 using PizzaSoft.Application.Topping;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PizzaSoft.Api.Controllers

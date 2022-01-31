@@ -1,9 +1,8 @@
-﻿using PizzaSoft.Application.Common.Exceptions;
-using PizzaSoft.Domain.Common;
-using PizzaSoft.Domain.Errors;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using PizzaSoft.Application.Common.Exceptions;
+using PizzaSoft.Domain.Common;
 using System;
 using System.Collections.Generic;
 
@@ -60,7 +59,7 @@ namespace PizzaSoft.Api.Filters
             //  Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1"
             //};
 
-            BaseResponse<string> baseResponse = new BaseResponse<string>(ErrorCode.VAL001, ErrorMessage.VAL001, exception.Errors);
+            BaseResponse<string> baseResponse = new BaseResponse<string>("", "");
             context.Result = new BadRequestObjectResult(baseResponse);
 
             context.ExceptionHandled = true;

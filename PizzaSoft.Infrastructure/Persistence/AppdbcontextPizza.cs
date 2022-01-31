@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PizzaSoft.Infrastructure.Persistence
@@ -87,14 +86,14 @@ namespace PizzaSoft.Infrastructure.Persistence
                      where ""Id""= @idPizza";
             var result = await connection.QueryAsync<Pizza>(query, new
             {
-                @idPizza= idPizza,
+                @idPizza = idPizza,
                 @idToppings = idToppings
             });
             return result.FirstOrDefault();
         }
 
 
-        
+
 
 
     }
